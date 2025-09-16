@@ -1,19 +1,29 @@
-# Skin Disease Detection
+# Skin Lesion Classification System
 
-This project applies **deep learning techniques** to classify dermatoscopic images of skin lesions from the **HAM10000 dataset** into 7 diagnostic categories.  
+This project presents a deep learning solution for classifying 7 types of skin lesions from the HAM10000 dermatoscopic image dataset. The primary challenge was the dataset's severe class imbalance. The final model utilizes a pre-trained **ResNet50** architecture in **PyTorch**, combined with a **class weighting** strategy, to achieve high accuracy and robust performance.
 
-## Goals
-- Explore and analyze the HAM10000 dataset.
-- Build and train a deep learning model for skin disease classification.
-- Evaluate performance using accuracy, F1-score, recall, and confusion matrix.
-- Generate explainability visualizations (Grad-CAM).
-- Save the trained model and provide a lightweight demo application (optional).
 
-## Structure
-- `notebooks/` : Google Colab notebooks for exploration, training, and evaluation  
-- `models/` : Saved trained models  
-- `docs/` : Visualizations (plots, Grad-CAM)  
-- `data/` : Dataset (not included due to size)  
 
+---
+## Key Features
+* **Model:** Transfer learning with a state-of-the-art **ResNet50** model, pre-trained on ImageNet.
+* **Performance:** Achieved **85% accuracy** on the unseen test set.
+* **Imbalance Handling:** Implemented **class weights** in PyTorch to effectively train on the imbalanced data, forcing the model to pay attention to rare classes.
+* **Explainability:** Includes **Grad-CAM** visualizations to interpret model predictions and understand which parts of an image influenced the diagnosis.
+
+---
+## Model Performance
+The final model achieved a test accuracy of **84.76%**. The classification report shows strong performance, particularly a "safety-first" bias with high recall rates for critical cancerous classes like Melanoma (**71%**) and Basal Cell Carcinoma (**84%**).
+
+---
+## Tech Stack
+* **Frameworks:** Python, PyTorch, Scikit-learn
+* **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Pillow, TQDM
+
+---
+## Usage
+The entire workflow, from data loading and preprocessing to model training and evaluation, is contained within the main Jupyter Notebook file. To run this project, open the notebook in an environment like Google Colab, ensure a GPU is enabled, and execute the cells in order.
+
+---
 ## Dataset
-[HAM10000 dataset on Kaggle](https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000)
+This project uses the publicly available [HAM10000 "Skin Cancer MNIST" dataset on Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000).
